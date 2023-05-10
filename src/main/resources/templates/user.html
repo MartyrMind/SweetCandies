@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/styles/user.css}" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/5605b824a7.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+<div class="card">
+    <div class="card-image">
+        <img th:src="${user.profileImage}"/>
+    </div>
+    <p class="name" th:text="${user.firstname} + ' ' + ${user.secondname}"></p>
+    <p th:text="${user.email}"></p>
+    <p th:text="'Любимый продукт: ' + ${user.favouriteProduct}"></p>
+    <p th:text="'Любимая категория: ' + ${user.favouriteCategory}"></p>
+    <div class="button_box">
+        <button class="letter"><i class="fa fa-envelope" aria-hidden="true"></i></button>
+        <button class="search_orders">Посмотреть заказы</button>
+    </div>
+</div>
+</body>
+</html>

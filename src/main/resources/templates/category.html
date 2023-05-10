@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/5605b824a7.js" crossorigin="anonymous"></script>
+    <link th:href="@{/styles/product_card.css}" rel="stylesheet" />
+    <link th:href="@{/styles/category.css}" rel="stylesheet" />
+    <title>Категория</title>
+</head>
+<body>
+<h1 th:text="${category.title}"></h1>
+<div class="category">
+    <th:block th:each="product: ${category.products}">
+        <div class="product">
+            <img th:src="${product.images[0].url}"/>
+            <h3 th:text="${product.title}"></h3>
+            <p th:text="${product.description}"></p>
+            <h6 th:text="${product.cost} + ' y.e'"></h6>
+            <ul>
+                <li th:each="i : ${#numbers.sequence(1, product.rating, 1)}"><i class="fa fa-star checked"></i></li>
+                <li th:each="i : ${#numbers.sequence(product.rating + 1, 5, 1)}"><i class="fa fa-star"></i></li>
+            </ul>
+            <button class="buy">Добавить в корзину</button>
+        </div>
+    </th:block>
+</div>
+</body>
+</html>
